@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GrassRoots Marketing Texas brings Fortune 500 event creativity to every Hill Country celebration. Balloon walls, photobooths, full event planning — call Kim.">
+  <meta property="og:title" content="GrassRoots Marketing Texas | Hill Country Event Services">
+  <meta property="og:description" content="Fortune 500 creativity. Texas heart. Balloon décor, photobooths, event planning & more across Horseshoe Bay, Marble Falls & Fredericksburg.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <title>GrassRoots Marketing Texas | Hill Country Event Services</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ─── DESIGN TOKENS ──────────────────────────────── */
+    :root {
+      --color-primary:      #2C1A0E;
+      --color-secondary:    #A47A2C;
+      --color-accent:       #C4622D;
+      --color-accent-hover: #A8521F;
+      --color-background:   #FAF6F0;
+      --color-surface:      #F2EBE0;
+      --color-text-primary: #2C1A0E;
+      --color-text-muted:   #7A6650;
+      --color-border:       #E6DCC8;
+      --color-highlight:    #EACF84;
+      --color-success:      #4A6B3A;
+      --color-error:        #8B3A2E;
+
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Nunito', sans-serif;
+
+      --space-xs:  4px;
+      --space-sm:  8px;
+      --space-md:  16px;
+      --space-lg:  24px;
+      --space-xl:  32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+
+      --shadow-sm: 0 1px 3px rgba(44,26,14,0.08);
+      --shadow-md: 0 4px 12px rgba(44,26,14,0.10);
+      --shadow-lg: 0 8px 24px rgba(44,26,14,0.14);
+      --shadow-xl: 0 16px 40px rgba(44,26,14,0.18);
+
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-fast:    150ms;
+      --dur-med:     300ms;
+      --dur-slow:    500ms;
+
+      --radius-card:   12px;
+      --radius-btn:    999px;
+      --radius-btn-sm: 8px;
+      --radius-img:    8px;
+
+      --max-width: 1200px;
+      --nav-height: 72px;
+    }
+
+    /* ─── ACCESSIBILITY ──────────────────────────────── */
+    .skip-nav {
+      position: absolute;
+      top: -100px;
+      left: var(--space-md);
+      background: var(--color-accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--radius-btn-sm);
+      font-family: var(--font-body);
+      font-weight: 700;
+      z-index: 9999;
+      transition: top var(--dur-fast) ease;
+    }
+    .skip-nav:focus { top: var(--space-md); }
+
+    :focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── BASE ───────────────────────────────────────── */
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      background: var(--color-background);
+      overflow-x: hidden;
+    }
+
+    /* Grain texture overlay on body */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.4;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.15; }
+    h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; }
+    h2 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
+    h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); font-family: var(--font-body); font-weight: 600; line-height: 1.3; }
+    p  { max-width: 65ch; }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    /* ─── BUTTONS ────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all var(--dur-fast) var(--ease-out);
+      cursor: pointer;
+      border: none;
+    }
+    .btn:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: var(--radius-btn);
+      padding: 14px 32px;
+    }
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-primary-xl {
+      padding: 20px 48px;
+      font-size: 1.05rem;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-btn);
+      padding: 18px 32px;
+      font-size: 1.05rem;
+    }
+    .btn-secondary:hover {
+      background: var(--color-primary);
+      color: var(--color-background);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost-dark {
+      background: transparent;
+      color: var(--color-highlight);
+      border: 2px solid var(--color-highlight);
+      border-radius: var(--radius-btn-sm);
+      padding: 13px 30px;
+    }
+    .btn-ghost-dark:hover {
+      background: var(--color-highlight);
+      color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      transition: background var(--dur-med) var(--ease-in-out),
+                  box-shadow var(--dur-med) var(--ease-in-out);
+    }
+    .site-nav.transparent { background: black; }
+    .site-nav.solid {
+      background: black;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 var(--space-lg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-main {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-highlight);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(234,207,132,0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(250,246,240,0.85);
+      letter-spacing: 0.02em;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--dur-fast);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--color-highlight);
+      transition: width var(--dur-med) var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--color-highlight); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-accent);
+      color: #fff !important;
+      border-radius: var(--radius-btn);
+      padding: 10px 24px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      transition: background var(--dur-fast) var(--ease-out),
+                  transform var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: var(--color-accent-hover) !important;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      color: #fff !important;
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 28px;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--color-highlight);
+      border-radius: 2px;
+      transition: all var(--dur-med) var(--ease-in-out);
+      transform-origin: center;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile phone strip */
+    .mobile-phone-strip {
+      display: none;
+      background: var(--color-primary);
+      border-top: 1px solid rgba(234,207,132,0.2);
+      text-align: center;
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-highlight);
+    }
+    .mobile-phone-strip a {
+      color: var(--color-highlight);
+    }
+
+    /* mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--color-primary);
+      padding: var(--space-xl) var(--space-lg);
+      z-index: 999;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform var(--dur-med) var(--ease-out),
+                  opacity var(--dur-med) var(--ease-out);
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-menu a {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(250,246,240,0.85);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(234,207,132,0.15);
+      transition: color var(--dur-fast);
+    }
+    .mobile-menu a:hover { color: var(--color-highlight); }
+    .mobile-menu .mobile-call-btn {
+      display: block;
+      margin-top: var(--space-xl);
+      text-align: center;
+    }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 60fr 40fr;
+      padding-top: var(--nav-height);
+      position: relative;
+      overflow: hidden;
+      background-image: url('img/hero-background.jpg');
+      background-size: auto 100%;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-color: var(--color-background);
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-4xl) var(--space-4xl) var(--space-4xl) var(--space-lg);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--color-background) 65%, transparent 100%);
+      z-index: -1;
+    }
+
+    /* Subtle decorative element */
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: -40px;
+      width: 80px;
+      height: 80px;
+      border: 1.5px solid var(--color-secondary);
+      border-radius: 50%;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-headline {
+      font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--color-primary);
+      margin-bottom: var(--space-lg);
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--color-secondary);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2xl);
+      max-width: 52ch;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-phone-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .hero-phone-number {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-secondary);
+      letter-spacing: 0.02em;
+      transition: color var(--dur-fast);
+    }
+    .hero-phone-number:hover { color: var(--color-accent); }
+
+    .hero-trust {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .hero-trust-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-border);
+      display: inline-block;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(196,98,45,0.25) 0%, transparent 70%);
+    }
+    .hero-img-placeholder-text {
+      text-align: center;
+      color: rgba(234,207,132,0.8);
+      padding: var(--space-2xl);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-img-placeholder-text p {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 28ch;
+      margin: 0 auto;
+    }
+    .hero-img-placeholder-text .placeholder-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(234,207,132,0.5);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Gold vertical rule between hero panels */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      bottom: 15%;
+      left: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--color-secondary), transparent);
+      z-index: 3;
+    }
+
+    /* ─── TRUST BAR ──────────────────────────────────── */
+    .trust-bar {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-xl) 0;
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--color-border);
+    }
+    .trust-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-secondary);
+    }
+
+    .trust-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+    .trust-text small {
+      display: block;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* ─── SECTION COMMONS ────────────────────────────── */
+    .section {
+      padding: var(--space-4xl) 0;
+    }
+    .section-header {
+      margin-bottom: var(--space-3xl);
+    }
+    .section-header .eyebrow {
+      margin-bottom: var(--space-md);
+    }
+    .section-header h2 {
+      margin-bottom: var(--space-md);
+    }
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      max-width: 58ch;
+    }
+
+    /* ─── SERVICES ───────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .service-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--dur-med) var(--ease-out),
+                  box-shadow var(--dur-med) var(--ease-out),
+                  border-color var(--dur-med) var(--ease-out);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-secondary);
+    }
+
+    .service-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-md);
+      position: relative;
+    }
+    .service-card-img-placeholder::after {
+      content: attr(data-placeholder);
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(234,207,132,0.75);
+      line-height: 1.4;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-card-img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,26,14,0.7) 0%, transparent 60%);
+      z-index: 1;
+    }
+
+    .service-card-bg-1 { background: linear-gradient(135deg, #5c3418, #A47A2C, #EACF84); }
+    .service-card-bg-2 { background: linear-gradient(135deg, #2C1A0E, #C4622D, #A47A2C); }
+    .service-card-bg-3 { background: linear-gradient(135deg, #3a2212, #7A6650, #A47A2C); }
+    .service-card-bg-4 { background: linear-gradient(135deg, #1a1a2e, #16213e, #C4622D); }
+
+    .service-card-body {
+      padding: var(--space-xl);
+    }
+
+    .service-card-featured {
+      border-color: var(--color-secondary);
+      position: relative;
+    }
+    .service-card-featured::after {
+      content: 'Booking Now for 2026';
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      background: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-btn);
+      z-index: 4;
+    }
+
+    .service-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin: var(--space-md) 0;
+    }
+    .service-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-btn);
+      padding: 3px 10px;
+    }
+
+    .service-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-secondary);
+      letter-spacing: 0.03em;
+      margin-top: var(--space-md);
+      transition: gap var(--dur-fast) var(--ease-out),
+                  color var(--dur-fast);
+    }
+    .service-card-cta:hover {
+      color: var(--color-accent);
+      gap: 10px;
+    }
+    .service-card-cta svg {
+      width: 16px;
+      height: 16px;
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .service-card-cta:hover svg { transform: translateX(2px); }
+
+    /* ─── ABOUT KIM ──────────────────────────────────── */
+    .about-section {
+      background: var(--color-background);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+
+    .about-content h2 { margin-bottom: var(--space-xl); }
+    .about-content .eyebrow { margin-bottom: var(--space-md); }
+
+    .about-body {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-xl);
+    }
+    .about-body p + p { margin-top: var(--space-md); }
+    .about-body strong {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .about-body .tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--color-primary);
+      margin-top: var(--space-xl);
+      display: block;
+    }
+
+    .about-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+    .about-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    .about-bullet-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .about-bullet-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-secondary);
+    }
+    .about-bullet-text strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      margin-bottom: 2px;
+    }
+    .about-bullet-text span {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-secondary);
+      border-bottom: 1.5px solid var(--color-secondary);
+      padding-bottom: 1px;
+      transition: color var(--dur-fast), border-color var(--dur-fast), gap var(--dur-fast);
+    }
+    .about-link:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+      gap: 10px;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+    }
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      background-image: url('img/kim-portrait.webp');
+      background-size: cover;
+      background-position: center top;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+    }
+    .about-img-placeholder::after {
+      content: '';
+      white-space: pre;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(234,207,132,0.7);
+      text-align: center;
+      padding: var(--space-2xl);
+      line-height: 1.8;
+    }
+
+    /* Decorative gold frame offset */
+    .about-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      bottom: 12px;
+      left: 12px;
+      border: 1.5px solid var(--color-secondary);
+      border-radius: var(--radius-card);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────────── */
+    .testimonials-section {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .testimonial-card {
+      background: var(--color-background);
+      border-radius: var(--radius-card);
+      padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: transform var(--dur-med) var(--ease-out),
+                  box-shadow var(--dur-med) var(--ease-out);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Large decorative quote mark */
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-xl);
+      font-family: var(--font-heading);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--color-surface);
+      pointer-events: none;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: var(--space-md);
+    }
+    .testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-highlight);
+      color: var(--color-highlight);
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--color-primary);
+      margin-bottom: var(--space-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-footer {
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-md);
+    }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-primary);
+    }
+    .testimonial-meta {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2px;
+    }
+    .testimonial-source {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 2px 8px;
+      border-radius: var(--radius-btn);
+    }
+
+    /* ─── AMERICA 250 ────────────────────────────────── */
+    .america250-section {
+      background-image: url('img/cowboy-horse-silhouette-sunset.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: var(--color-primary);
+      padding: var(--space-4xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .america250-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      pointer-events: none;
+    }
+    .america250-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(196,98,45,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .america250-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+
+    .america250-content .eyebrow {
+      color: var(--color-highlight);
+      margin-bottom: var(--space-md);
+    }
+    .america250-content h2 {
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: var(--space-xl);
+    }
+    .america250-content p {
+      color: rgba(250,246,240,0.8);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+    .america250-content p + p { margin-top: 0; }
+    .america250-cta { margin-top: var(--space-2xl); }
+
+    .america250-img {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      position: relative;
+    }
+    .america250-img-placeholder {
+      aspect-ratio: 4/3;
+      background-image: url('img/america.webp');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .america250-img-placeholder::after {
+      content: '';
+      white-space: pre;
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(234,207,132,0.7);
+      text-align: center;
+      padding: var(--space-xl);
+      line-height: 1.8;
+    }
+
+    /* ─── FINAL CTA ──────────────────────────────────── */
+    .final-cta-section {
+      background-image: url('img/photorealistic-wedding-venue-with-intricate-decor-ornaments.jpg');
+      background-size: cover;
+      background-position: center;
+      background-color: var(--color-primary);
+      padding: var(--space-4xl) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, var(--color-primary) 0%, var(--color-primary) 40%, rgba(44,26,14,0.85) 65%, rgba(44,26,14,0.3) 100%);
+      pointer-events: none;
+    }
+
+    .final-cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-cta-inner h2 {
+      color: #fff;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: var(--space-lg);
+    }
+    .final-cta-inner > p {
+      color: rgba(250,246,240,0.75);
+      font-size: 1.1rem;
+      max-width: 48ch;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .final-cta-phone {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      color: var(--color-highlight);
+      display: block;
+      margin: var(--space-xl) 0 var(--space-lg);
+      letter-spacing: 0.03em;
+      transition: color var(--dur-fast);
+    }
+    .final-cta-phone:hover { color: #fff; }
+
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .final-cta-service-area {
+      font-size: 0.85rem;
+      color: rgba(250,246,240,0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .site-footer {
+      background: black;
+      border-top: 1px solid rgba(234,207,132,0.15);
+      padding: var(--space-4xl) 0 var(--space-xl);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: var(--space-4xl);
+      padding-bottom: var(--space-3xl);
+      border-bottom: 1px solid rgba(234,207,132,0.12);
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-highlight);
+      letter-spacing: 0.05em;
+    }
+    .footer-tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(234,207,132,0.6);
+      margin: var(--space-sm) 0 var(--space-xl);
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.9rem;
+      color: rgba(250,246,240,0.7);
+      margin-bottom: var(--space-md);
+      transition: color var(--dur-fast);
+    }
+    .footer-contact-item:hover { color: var(--color-highlight); }
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-secondary);
+      flex-shrink: 0;
+    }
+
+    .footer-heading {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      margin-bottom: var(--space-xl);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(250,246,240,0.65);
+      transition: color var(--dur-fast);
+    }
+    .footer-links a:hover { color: var(--color-highlight); }
+
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(234,207,132,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(234,207,132,0.6);
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+    .footer-social a:hover {
+      background: rgba(234,207,132,0.1);
+      border-color: var(--color-highlight);
+      color: var(--color-highlight);
+      transform: translateY(-2px);
+    }
+    .footer-social a svg { width: 16px; height: 16px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-sm);
+    }
+    .newsletter-form input {
+      flex: 1;
+      background: rgba(250,246,240,0.08);
+      border: 1px solid rgba(234,207,132,0.25);
+      border-radius: var(--radius-btn-sm);
+      padding: 10px 16px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: rgba(250,246,240,0.85);
+      transition: border-color var(--dur-fast);
+      min-width: 0;
+    }
+    .newsletter-form input::placeholder { color: rgba(250,246,240,0.35); }
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--color-highlight);
+    }
+    .newsletter-form button {
+      background: var(--color-secondary);
+      color: var(--color-primary);
+      border-radius: var(--radius-btn-sm);
+      padding: 10px 18px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background var(--dur-fast), transform var(--dur-fast);
+    }
+    .newsletter-form button:hover {
+      background: var(--color-highlight);
+      transform: translateY(-1px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: var(--space-xl);
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: rgba(250,246,240,0.35);
+    }
+    .footer-legal {
+      display: flex;
+      gap: var(--space-xl);
+    }
+    .footer-legal a {
+      font-size: 0.8rem;
+      color: rgba(250,246,240,0.35);
+      transition: color var(--dur-fast);
+    }
+    .footer-legal a:hover { color: var(--color-highlight); }
+
+    /* ─── COOKIE BANNER ──────────────────────────────── */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--color-primary);
+      border-top: 1px solid rgba(234,207,132,0.25);
+      padding: var(--space-md) var(--space-lg);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      box-shadow: 0 -4px 20px rgba(44,26,14,0.3);
+      transform: translateY(0);
+      transition: transform var(--dur-med) var(--ease-out);
+    }
+    .cookie-banner.hidden {
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+    .cookie-banner p {
+      font-size: 0.875rem;
+      color: rgba(250,246,240,0.75);
+      max-width: none;
+    }
+    .cookie-banner a {
+      color: var(--color-highlight);
+      text-decoration: underline;
+    }
+    .cookie-buttons {
+      display: flex;
+      gap: var(--space-sm);
+      flex-shrink: 0;
+    }
+    .cookie-btn-accept {
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: var(--radius-btn-sm);
+      padding: 8px 20px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: background var(--dur-fast);
+    }
+    .cookie-btn-accept:hover { background: var(--color-accent-hover); }
+    .cookie-btn-decline {
+      background: transparent;
+      color: rgba(250,246,240,0.5);
+      border: 1px solid rgba(250,246,240,0.2);
+      border-radius: var(--radius-btn-sm);
+      padding: 8px 20px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: border-color var(--dur-fast), color var(--dur-fast);
+    }
+    .cookie-btn-decline:hover {
+      border-color: rgba(250,246,240,0.4);
+      color: rgba(250,246,240,0.75);
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity var(--dur-slow) var(--ease-out),
+                  transform var(--dur-slow) var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+    .reveal-delay-4 { transition-delay: 400ms; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: var(--space-3xl); }
+      .about-image-wrapper { max-width: 480px; }
+      .america250-inner { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .america250-img { max-width: 520px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --nav-height: 64px; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      .mobile-phone-strip { display: block; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-right { order: -1; }
+      .hero-img-placeholder { min-height: 280px; aspect-ratio: 4/3; }
+      .hero-right::before { display: none; }
+      .hero-left {
+        padding: var(--space-2xl) var(--space-lg);
+      }
+      .hero-left::after { display: none; }
+
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { text-align: center; justify-content: center; }
+      .hero-phone-block { justify-content: center; }
+      .hero-trust { flex-wrap: wrap; justify-content: center; text-align: center; }
+      .hero-trust-dot { display: none; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .final-cta-buttons { flex-direction: column; align-items: center; }
+      .final-cta-buttons .btn { width: 100%; justify-content: center; max-width: 360px; }
+
+      .cookie-banner { flex-direction: column; align-items: flex-start; }
+      .cookie-buttons { width: 100%; }
+      .cookie-btn-accept, .cookie-btn-decline { flex: 1; text-align: center; }
+
+      .trust-bar-inner { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
+
+      .section { padding: var(--space-2xl) 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- ─── NAVIGATION ─────────────────────────────── -->
+  <nav class="site-nav solid" id="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="GrassRoots Marketing Texas — Home">
+        <img src="img/logo.jpeg" alt="GrassRoots Marketing Texas" style="height:70px;width:auto;display:block;">
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="event-services.html">Event Services</a></li>
+        <li><a href="event-services.html#marketing">Marketing</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li>
+          <a href="tel:+1XXXXXXXXXX" class="nav-cta" aria-label="Call Kim — click to dial">
+            Call Kim
+          </a>
+        </li>
+      </ul>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile phone strip -->
+  <div class="mobile-phone-strip" aria-hidden="true">
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+    <nav>
+      <a href="our-story.html">Our Story</a>
+      <a href="event-services.html">Event Services</a>
+      <a href="event-services.html#marketing">Marketing Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <div class="mobile-call-btn">
+        <a href="tel:+1XXXXXXXXXX" class="btn btn-primary btn-primary-xl" style="width:100%;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.26a16 16 0 006.29 6.29l1.71-1.71a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Call Kim Now
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ─── MAIN CONTENT ───────────────────────────── -->
+  <main id="main-content">
+
+    <!-- ─── HERO ───────────────────────────────────── -->
+    <section class="hero" aria-label="Welcome to GrassRoots Marketing Texas">
+      <div class="hero-left">
+        <p class="eyebrow hero-eyebrow">Texas Hill Country · Est. 2013</p>
+
+        <h1 class="hero-headline">
+          Your Event.<br>
+          Done Right.<br>
+          <em>Call Kim.</em>
+        </h1>
+
+        <p class="hero-sub">
+          Kim Collins spent 21 years running events for Fortune 500 companies.
+          Now she brings that same expertise to every Hill Country celebration — yours included.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="tel:+1XXXXXXXXXX" class="btn btn-primary btn-primary-xl" aria-label="Call Kim now — click to dial">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.26a16 16 0 006.29 6.29l1.71-1.71a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Kim Now
+          </a>
+          <a href="gallery.html" class="btn btn-secondary">See Our Work</a>
+        </div>
+
+
+        <p class="hero-trust">
+          <span>Trusted by Texas families &amp; businesses since 2013</span>
+          <span class="hero-trust-dot" aria-hidden="true"></span>
+          <span>Lake Travis Chamber Member ⭐</span>
+        </p>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-img-placeholder">
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TRUST BAR ──────────────────────────────── -->
+    <section class="trust-bar reveal" aria-label="Why clients choose GRMTX">
+      <div class="container">
+        <ul class="trust-bar-inner" role="list">
+          <li class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="trust-text">
+              Lake Travis Chamber
+              <small>of Commerce Member</small>
+            </div>
+          </li>
+          <li class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="trust-text">
+              10+ Years
+              <small>in the Texas Hill Country</small>
+            </div>
+          </li>
+          <li class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="trust-text">
+              Fortune 500 Trained
+              <small>PepsiCo · Budweiser · Campbell's</small>
+            </div>
+          </li>
+          <li class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="trust-text">
+              Horseshoe Bay · Marble Falls
+              <small>Fredericksburg &amp; Beyond</small>
+            </div>
+          </li>
+          <li class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="trust-text">
+              100+ Texas Events
+              <small>Planned &amp; Executed</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─── SERVICES ──────────────────────────────── -->
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow">What We Do</p>
+          <h2 id="services-heading">Everything Your Event Needs.<br>One Phone Call.</h2>
+          <p>
+            From a backyard birthday to a Hill Country wedding, GRMTX handles the décor,
+            the experiences, and the planning — so you don't have to chase down twelve different vendors.
+          </p>
+        </header>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder" style="background-image:url('img/disco-wall.webp');background-size:cover;background-position:center;"></div>
+            </div>
+            <div class="service-card-body">
+              <h3>Make Them Stop and Stare.</h3>
+              <p>Balloon walls. Disco walls. Custom signage. LED lighting. The visual moments that turn your event from "nice" into "I have to take a picture of this."</p>
+              <ul class="service-card-tags" aria-label="Services included">
+                <li class="service-tag">Balloons</li>
+                <li class="service-tag">Backdrops</li>
+                <li class="service-tag">Signage</li>
+                <li class="service-tag">LED Lighting</li>
+                <li class="service-tag">Custom Builds</li>
+              </ul>
+              <a href="event-services.html#decor" class="service-card-cta">
+                See Décor Services
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder" style="background-image:url('img/digital-photo-booth.webp');background-size:cover;background-position:center;"></div>
+            </div>
+            <div class="service-card-body">
+              <h3>The Stuff Your Guests Will Talk About on Monday.</h3>
+              <p>A digital photobooth that doesn't sit in the corner. A dirty soda bar that becomes the line of the night. Event rentals that fit your vibe, not the other way around.</p>
+              <ul class="service-card-tags" aria-label="Services included">
+                <li class="service-tag">Photobooth</li>
+                <li class="service-tag">Dirty Soda Bar</li>
+                <li class="service-tag">Event Rentals</li>
+              </ul>
+              <a href="event-services.html#experiences" class="service-card-cta">
+                See Experience Services
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card reveal reveal-delay-3">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder" style="background-image:url('img/event-planning.webp');background-size:cover;background-position:center;"></div>
+            </div>
+            <div class="service-card-body">
+              <h3>Every Detail Handled. Every Guest Impressed.</h3>
+              <p>Full event planning from first idea to final cleanup. Day-of coordination so you can actually be a guest at your own event. Vendor consultations from someone who knows everyone worth knowing.</p>
+              <ul class="service-card-tags" aria-label="Services included">
+                <li class="service-tag">Full Planning</li>
+                <li class="service-tag">Day-of Coord.</li>
+                <li class="service-tag">Vendor Network</li>
+              </ul>
+              <a href="event-services.html#planning" class="service-card-cta">
+                See Planning Services
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4 — Featured -->
+          <article class="service-card service-card-featured reveal reveal-delay-4" aria-label="America 250 — Featured 2026 campaign">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder" style="background-image:url('img/usa2.webp');background-size:cover;background-position:center;"></div>
+            </div>
+            <div class="service-card-body">
+              <h3>America Turns 250. We're Ready. Are You?</h3>
+              <p>2026 is America's biggest birthday. GRMTX is the Hill Country's go-to for patriotic installs, themed décor, and community events that honor the moment without feeling like a costume party.</p>
+              <ul class="service-card-tags" aria-label="Services included">
+                <li class="service-tag">Patriotic Installs</li>
+                <li class="service-tag">Themed Décor</li>
+                <li class="service-tag">Community Events</li>
+              </ul>
+              <a href="event-services.html#america250" class="service-card-cta">
+                Learn More
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT KIM ─────────────────────────────── -->
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <p class="eyebrow reveal">Meet Kim</p>
+            <h2 id="about-heading" class="reveal">21 Years at PepsiCo.<br>Now She's Planning Your Party.</h2>
+
+            <div class="about-body reveal">
+              <p>
+                Kim Collins didn't stumble into the events business. She spent more than two decades
+                at Fortune 500 companies — <strong>PepsiCo, Budweiser, Campbell's</strong> — learning
+                what makes people stop, pay attention, and remember an experience.
+              </p>
+              <p>
+                She earned PepsiCo's <strong>Ring of Honor</strong> (top 1% of salespeople worldwide)
+                before bringing all of it home to Texas Hill Country. Now she puts that same playbook
+                to work for your birthday party, your daughter's wedding, your nonprofit gala.
+              </p>
+              <em class="tagline">Same brain. Same standards. Bigger heart.</em>
+            </div>
+
+            <ul class="about-bullets reveal" aria-label="Kim's credentials">
+              <li class="about-bullet">
+                <div class="about-bullet-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="about-bullet-text">
+                  <strong>PepsiCo Ring of Honor</strong>
+                  <span>Top 1% of salespeople worldwide</span>
+                </div>
+              </li>
+              <li class="about-bullet">
+                <div class="about-bullet-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="about-bullet-text">
+                  <strong>Super Bowl-level event experience</strong>
+                  <span>Applied to every single booking</span>
+                </div>
+              </li>
+              <li class="about-bullet">
+                <div class="about-bullet-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div class="about-bullet-text">
+                  <strong>Deep vendor network</strong>
+                  <span>Across the entire Texas Hill Country</span>
+                </div>
+              </li>
+            </ul>
+
+            <a href="our-story.html" class="about-link reveal">
+              Read Kim's Full Story
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+
+          <div class="about-image-wrapper reveal">
+            <div class="about-img-placeholder" role="img" aria-label="Kim Collins of GrassRoots Marketing Texas at an event in the Horseshoe Bay area — warm, candid portrait"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ──────────────────────────── -->
+    <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow">Client Stories</p>
+          <h2 id="testimonials-heading">Don't Take Our Word For It.</h2>
+          <p>Real clients. Real events. Real Hill Country names.</p>
+        </header>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="testimonial-quote">
+              "Kim is a gifted communicator who takes complex issues and presents the solution in a brief and brilliant manner. She has high standards and knows how to execute plans."
+            </blockquote>
+            <footer class="testimonial-footer">
+              <p class="testimonial-name">Gary Huddleston</p>
+              <div class="testimonial-meta">
+                <span>Texas Retailers Association</span>
+                <span class="testimonial-source">Direct Client</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Testimonial 2 — Placeholder -->
+          <article class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="testimonial-quote">
+              ⚠️ PLACEHOLDER — Pull John Mikulecky quote from the existing Our Story page or Google Business Profile. Confirm title and location with Kim before launch.
+            </blockquote>
+            <footer class="testimonial-footer">
+              <p class="testimonial-name">John Mikulecky</p>
+              <div class="testimonial-meta">
+                <span>[Title / Location — confirm with Kim]</span>
+                <span class="testimonial-source">Direct Client</span>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Testimonial 3 — Placeholder -->
+          <article class="testimonial-card reveal reveal-delay-3">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="testimonial-quote">
+              ⚠️ PLACEHOLDER — Pull the strongest 5-star review from the GRMTX Google Business Profile. Name and location required.
+            </blockquote>
+            <footer class="testimonial-footer">
+              <p class="testimonial-name">[Reviewer Name]</p>
+              <div class="testimonial-meta">
+                <span>[Event type · Hill Country location]</span>
+                <span class="testimonial-source">Google Review</span>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── AMERICA 250 ─────────────────────────────── -->
+    <section class="america250-section" id="america250" aria-labelledby="america250-heading">
+      <div class="container">
+        <div class="america250-inner">
+          <div class="america250-content">
+            <p class="eyebrow">Featured for 2026</p>
+            <h2 id="america250-heading">America Turns 250.<br>Right Here in Texas.</h2>
+            <p>
+              2026 is America's 250th birthday — and the Texas Hill Country is going to celebrate
+              like only Texas can. GRMTX is booking patriotic installs, themed décor, and
+              community events now.
+            </p>
+            <p>Don't wait until July. The good dates are already going.</p>
+            <div class="america250-cta">
+              <a href="event-services.html#america250" class="btn btn-primary btn-primary-xl">
+                Get On The Books
+              </a>
+            </div>
+          </div>
+
+          <div class="america250-img reveal">
+            <div class="america250-img-placeholder" role="img" aria-label="Patriotic event décor with red, white, and blue styling, gold accents, and Texas-themed elements for an America 250 celebration"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ──────────────────────────────── -->
+    <section class="final-cta-section" aria-labelledby="final-cta-heading">
+      <div class="final-cta-inner">
+        <p class="eyebrow" style="color: var(--color-secondary);">Ready When You Are</p>
+        <h2 id="final-cta-heading">Ready to Make It Unforgettable?</h2>
+        <p>Call Kim. She'll pick up. And she'll have ideas before you hang up.</p>
+
+
+        <div class="final-cta-buttons reveal">
+          <a href="tel:+1XXXXXXXXXX" class="btn btn-primary btn-primary-xl" aria-label="Call Kim now">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.26a16 16 0 006.29 6.29l1.71-1.71a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Kim Now
+          </a>
+          <a href="[STAN.STORE LINK]" class="btn btn-ghost-dark" target="_blank" rel="noopener noreferrer" style="border-radius:999px;padding-left:2rem;padding-right:2rem;">
+            Or Book a Consultation Online
+          </a>
+        </div>
+
+        <p class="final-cta-service-area">
+          Serving Texas Hill Country · Horseshoe Bay · Marble Falls · Fredericksburg · and beyond
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div>
+          <img src="img/logo.jpeg" alt="GrassRoots Marketing Texas" style="height:67px;width:auto;display:block;margin-bottom:8px;">
+          <p class="footer-tagline">"Fortune 500 Creativity. Texas Heart."</p>
+          <a href="mailto:hello@grmtx.com" class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            hello@grmtx.com
+          </a>
+          <span class="footer-contact-item" style="cursor:default;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Horseshoe Bay, Texas
+          </span>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <p class="footer-heading">Quick Links</p>
+          <nav aria-label="Footer navigation">
+            <ul class="footer-links" role="list">
+              <li><a href="/">Home</a></li>
+              <li><a href="our-story.html">Our Story</a></li>
+              <li><a href="event-services.html">Event Services</a></li>
+              <li><a href="event-services.html#marketing">Marketing Services</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Col 3: Connect + Newsletter -->
+        <div>
+          <p class="footer-heading">Connect</p>
+          <nav aria-label="Social media links">
+            <ul class="footer-social" role="list">
+              <li>
+                <a href="#" aria-label="Follow GRMTX on Facebook">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Follow GRMTX on Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Follow GRMTX on Pinterest">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.58 2.26-.87 3.51-.25 1.05.52 1.9 1.54 1.9 1.84 0 3.08-2.37 3.08-5.18 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.27 1.48.62 1.9.07.08.07.15.05.23l-.23.94c-.04.14-.13.18-.29.11C7.6 13.38 7 11.7 7 10.35c0-2.91 2.11-5.58 6.09-5.58 3.2 0 5.68 2.28 5.68 5.32 0 3.17-1.99 5.73-4.76 5.73-.93 0-1.8-.48-2.1-1.05l-.57 2.14c-.2.79-.76 1.78-1.13 2.38.85.26 1.75.4 2.69.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Follow GRMTX on TikTok">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Follow GRMTX on YouTube">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" aria-label="Follow Kim on LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="footer-heading" style="margin-top: var(--space-xl);">Get Event Ideas Worth Stealing.</p>
+          <form class="newsletter-form" aria-label="Newsletter signup" onsubmit="handleNewsletterSubmit(event)">
+            <label for="newsletter-email" class="skip-nav">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              placeholder="Your email address"
+              required
+              aria-label="Email address for newsletter"
+            >
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 GrassRoots Marketing Texas, LLC. All rights reserved.
+        </p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── COOKIE BANNER ─────────────────────────── -->
+  <div
+    class="cookie-banner"
+    id="cookie-banner"
+    role="dialog"
+    aria-label="Cookie consent"
+    aria-live="polite"
+  >
+    <p>
+      We use cookies to improve your experience. By continuing, you agree to our
+      <a href="privacy-policy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button class="cookie-btn-accept" onclick="setCookieConsent('accepted')" aria-label="Accept cookies">Accept</button>
+      <button class="cookie-btn-decline" onclick="setCookieConsent('declined')" aria-label="Decline cookies">Decline</button>
+    </div>
+  </div>
+
+  <!-- ─── JAVASCRIPT ────────────────────────────── -->
+  <script defer>
+    // ── Sticky nav transition ──────────────────────
+    const nav = document.getElementById('site-nav');
+    const hero = document.querySelector('.hero');
+
+    function updateNav() {
+      nav.classList.remove('transparent');
+      nav.classList.add('solid');
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+
+    // ── Hamburger / mobile menu ────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isOpen);
+      mobileMenu.setAttribute('aria-hidden', isOpen);
+      mobileMenu.classList.toggle('open');
+      // Always show solid nav when menu is open
+      if (!isOpen) nav.classList.add('solid');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ── Scroll reveal (Intersection Observer) ─────
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ── Hero entrance animation ────────────────────
+    document.querySelectorAll('.hero-left > *').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = `opacity 500ms cubic-bezier(0.16, 1, 0.3, 1) ${i * 80}ms,
+                              transform 500ms cubic-bezier(0.16, 1, 0.3, 1) ${i * 80}ms`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      });
+    });
+
+    // ── Cookie consent ─────────────────────────────
+    const cookieBanner = document.getElementById('cookie-banner');
+
+    function checkCookieConsent() {
+      try {
+        const consent = localStorage.getItem('grmtx_cookie_consent');
+        if (consent) {
+          cookieBanner.classList.add('hidden');
+        }
+      } catch(e) {
+        // localStorage unavailable — hide banner gracefully
+        cookieBanner.classList.add('hidden');
+      }
+    }
+
+    function setCookieConsent(choice) {
+      try {
+        localStorage.setItem('grmtx_cookie_consent', choice);
+      } catch(e) { /* fail silently */ }
+      cookieBanner.classList.add('hidden');
+    }
+
+    checkCookieConsent();
+
+    // ── Newsletter submit ──────────────────────────
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Thanks! ✓';
+      btn.style.background = 'var(--color-success)';
+      btn.style.color = '#fff';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = 'Sign Up';
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3000);
+    }
+
+    // ── Smooth anchor scrolling ────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
